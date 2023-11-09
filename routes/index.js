@@ -1,4 +1,3 @@
-const { error } = require("console");
 const express = require("express");
 const router = express.Router();
 const firestore = require("firebase/firestore");
@@ -11,7 +10,6 @@ router.get("/", (req, res) => {
     postsQuery
         .then((response) => {
             response.forEach((post) => {
-                //console.log(post.data());
                 postsArray.push({id: post.id, ...post.data() });
             });
             res.send(postsArray);
